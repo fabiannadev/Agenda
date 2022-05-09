@@ -1,0 +1,69 @@
+@agenda =[
+    {nome:"juliana", telefone: 99537894"}
+    {nome: "wesley", telefone: 98775623"}
+def todos_contatos
+    @agenda.each do |contato|
+        puts "#{contato[ :nome]} - #{contato[: telefone]}"
+end
+puts "____________________________________________"
+def adicionar_contato
+    print "nome:"
+    nome= gets.chomp 
+    print "telefone:"
+    telefone= gets.chomp.to_i 
+    @agenda << {nome: nome, telefone: telefone}
+end
+def ver_contato
+    print "qual nome você deseja:"
+    nome= gets.chomp 
+    @agenda.each |contato|
+    if contato [ :nome].downcase.include?(nome.downcase)
+        puts "#{contato[ :nome]} - #{contato [:telefone]}"
+    end
+    puts "___________________________________________"
+end
+def editar_contato
+    print "qual nome deseja editar"
+    nome= gets.chomp 
+    @agenda.each do |contato|
+        if contato [ :nome].downcase == (nome.downcase)
+            print "nome para editar (se quiser manter o mesmo nome aperte enter):"
+            nome_salvo= contato[:nome]
+            contato [: nome]= gets.chomp
+            contato [: nome]= contato[:nome]empty? ? nome_salvo : contato[:nome]
+            print "telefone para editar (se quiser manter o mesmo nome aperte enter):"
+            telefone_salvo= contato[:telefone]
+            contato [: telefone]= gets.chomp
+            contato [: telefone]= contato[:telefone]empty? ? telefone_salvo : contato[:telefone]
+        end
+        def remover_contato
+            print "qual nome deseja remover :"
+        nome= gets.chomp 
+        @agenda.each do |contato|
+            if contato [ :nome].downcase == (nome.downcase)
+                indice= @agenda.index(contato)
+                @agenda delete_at(indice)
+                break 
+            end
+loop do
+puts " 1 contato/n 2 adicionar contato/n 3 ver contato/n 4  editar contato/n 5 remover contato/n 0 sair"
+codigo= gets.chomp.to_i 
+
+]
+case 
+when codigo == o 
+    puts "até logo!"
+    break 
+when codigo == 1 
+    todos_contatos
+when codigo == 2 
+    adicionar_contato
+when codigo == 3 
+    ver_contato
+when codigo == 4
+    editar_contato
+when codigo == 5 
+    remover_contato
+else 
+    puts "função não existe, por favor digite uma função valida."
+end 
